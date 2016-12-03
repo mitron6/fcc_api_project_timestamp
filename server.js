@@ -27,6 +27,4 @@ app.get('*', function(req, res) {
     res.send({unix: unix, natural: natural});
 });
 
-app.listen(8080, function() {
-    console.log("Timestamp microservice listening on port 8080!");
-});
+app.listen(process.env.PORT);
