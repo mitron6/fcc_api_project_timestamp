@@ -8,9 +8,9 @@ app.get('*', function(req, res) {
     var unix = null;
     // if only digits provided, assume unix time stamp
     if (input.match(/^[0-9]+$/) !== null) {
-        unix = Number(input);   
+        unix = Number(input);
     } else {
-        unix = Date.parse(input); 
+        unix = Date.parse(input) / 1000; // From microseconds to seconds
         if (isNaN(unix)) {
             unix = null;
         }
@@ -20,7 +20,8 @@ app.get('*', function(req, res) {
     if (unix !== null) {
         var locale = 'en-US';
         var format = {day: 'numeric', month: 'long', year: 'numeric'};
-        natural = new Date(Number(unix)).toLocaleDateString(locale, format);   
+        // Convert seconds to microseconds
+        natural = new Date(unix * 1000).toLocaleDateString(locale, format);   
     }
     
     res.send({unix: unix, natural: natural});
