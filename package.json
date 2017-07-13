@@ -1,13 +1,14 @@
 {
   "name": "timestamp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Timestamp Microservive",
   "engines": {
-    "node": "4.6.1"
+    "node": "6.11.1"
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
